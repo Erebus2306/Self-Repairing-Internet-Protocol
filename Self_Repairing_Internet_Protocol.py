@@ -3,7 +3,6 @@ import glob
 import matplotlib.pyplot as plt
 import random
 import os
-import csv
 import time
 import numpy as np
 import threading
@@ -24,6 +23,8 @@ def preprocess_topology(G):
     G = nx.convert_node_labels_to_integers(nx.MultiGraph(G))
     for u, v, k in G.edges(keys=True):
         G.edges[u, v, k].setdefault("weight", random.randint(1, 10))
+        G.edges[u, v, k].setdefault("latency", random.uniform(1, 50))
+        G.edges[u, v, k].setdefault("bandwidth", random.randint(1, 100))
     G.remove_nodes_from(list(nx.isolates(G)))
     return G
 
@@ -42,7 +43,7 @@ def update_topology(G):
         potential_neighbors = list(G.nodes())
         random.shuffle(potential_neighbors)
         for neighbor in potential_neighbors[:2]:
-            G.add_edge(new_node, neighbor, weight=random.randint(1, 10))
+            G.add_edge(new_node, neighbor, weight=random.randint(1, 10), latency=random.uniform(1, 50), bandwidth=random.randint(1, 100))
         print(f"🔄 BGP Update: Added node {new_node} with links to {potential_neighbors[:2]}")
     
     for node in list(G.nodes()):
@@ -52,22 +53,17 @@ def update_topology(G):
                 withdrawn_neighbor = random.choice(neighbors)
                 G.remove_edge(node, withdrawn_neighbor)
                 print(f"📉 BGP Route Withdrawal: Node {node} lost link to {withdrawn_neighbor}")
-    
-    for u, v, k in list(G.edges(keys=True)):
-        if random.random() < 0.1:
-            G.remove_edge(u, v, k)
-            print(f"⚡ BGP Stability Update: Unstable link {u}-{v} removed")
-    
-    enforce_as_path_policies(G)
 
-def enforce_as_path_policies(G):
-    for node in G.nodes():
-        local_preference = random.randint(50, 100)
-        as_path_length = random.randint(1, 5)
-        if local_preference > 75 and as_path_length < 3:
-            print(f"🌍 BGP Policy: Node {node} prefers shorter AS paths with higher local preference")
-        
-# Q-Learning-Based Failure Prediction
+def dynamic_qos_routing(G, source, target):
+    try:
+        path = nx.shortest_path(G, source, target, weight="latency")
+        print(f"⚡ QoS-aware path selected: {path}")
+        return path
+    except nx.NetworkXNoPath:
+        print("❌ No QoS-aware path available.")
+        return None
+
+# Multi-Agent Q-Learning for Failure Prediction
 class QLearningFailurePredictor:
     def __init__(self, alpha=0.1, gamma=0.9, epsilon=0.1):
         self.q_table = {}
@@ -108,18 +104,13 @@ q_predictor.train(processed_topologies[0])
 
 # Monitoring and Rerouting
 monitoring_active = False
-monitoring_thread = None
 
 def monitor_network(G, interval=5):
     global monitoring_active
     while monitoring_active:
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         print(f"🔍 {timestamp}: Monitoring network...")
-        predict_failures_rl(G)
-        reroute_traffic(G)
-        balance_traffic(G)
-        optimize_scalability(G)
-        log_network_data(G)
+        dynamic_qos_routing(G, 0, max(G.nodes()))
         update_topology(G)
         time.sleep(interval)
     print(f"⏹️ {timestamp}: Monitoring stopped.")
