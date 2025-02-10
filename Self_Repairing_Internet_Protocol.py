@@ -3,79 +3,147 @@ import glob
 import matplotlib.pyplot as plt
 import random
 import os
+import csv
+import time
+import numpy as np
+import threading
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import dash_cytoscape as cyto
+from dash.dependencies import Input, Output
+from sklearn.preprocessing import StandardScaler
 
-# Load all topology files
-topology_files = glob.glob(os.path.join("Topology/*.graphml"))  # Change path as needed
+# Load and preprocess topologies
+def load_topologies():
+    topology_files = glob.glob(os.path.join("Topology/*.graphml"))
+    network_topologies = [nx.read_graphml(file) for file in topology_files]
+    return [preprocess_topology(G) for G in network_topologies]
 
-# Read and store graphs
-network_topologies = []
-for file in topology_files:
-    G = nx.read_graphml(file)
-    G = nx.MultiGraph(G)  # Convert to MultiGraph (ensures multiple edges are supported)
-    network_topologies.append(G)
-
-print(f"Loaded {len(network_topologies)} topologies.")
-
-# Preprocessing function for MultiGraph
 def preprocess_topology(G):
-    # Convert node labels to integers
-    G = nx.convert_node_labels_to_integers(G)
-
-    # Add weights if missing for MultiGraph
-    for u, v, k in G.edges(keys=True):  # MultiGraph requires "keys=True"
-        if "weight" not in G.edges[u, v, k]:
-            G.edges[u, v, k]["weight"] = random.randint(1, 10)  # Assign random weight
-
-    # Remove isolated nodes
+    G = nx.convert_node_labels_to_integers(nx.MultiGraph(G))
+    for u, v, k in G.edges(keys=True):
+        G.edges[u, v, k].setdefault("weight", random.randint(1, 10))
     G.remove_nodes_from(list(nx.isolates(G)))
-
     return G
 
-# Apply preprocessing to all MultiGraph topologies
-processed_topologies = [preprocess_topology(G) for G in network_topologies]
-
+processed_topologies = load_topologies()
 print(f"Preprocessed {len(processed_topologies)} topologies.")
 
-# Save cleaned MultiGraph topologies
-for i, G in enumerate(processed_topologies):
-    nx.write_graphml(G, f"cleaned_topology_{i}.graphml")
+# Enhanced BGP-like Topology Updates with Route Preferences and AS-like Behavior
+def update_topology(G):
+    if random.random() < 0.3:
+        node_to_remove = random.choice(list(G.nodes()))
+        G.remove_node(node_to_remove)
+        print(f"🔄 BGP Update: Removed node {node_to_remove}")
+    
+    if random.random() < 0.3:
+        new_node = max(G.nodes()) + 1
+        potential_neighbors = list(G.nodes())
+        random.shuffle(potential_neighbors)
+        for neighbor in potential_neighbors[:2]:
+            G.add_edge(new_node, neighbor, weight=random.randint(1, 10))
+        print(f"🔄 BGP Update: Added node {new_node} with links to {potential_neighbors[:2]}")
+    
+    for node in list(G.nodes()):
+        if random.random() < 0.2:
+            neighbors = list(G.neighbors(node))
+            if neighbors:
+                withdrawn_neighbor = random.choice(neighbors)
+                G.remove_edge(node, withdrawn_neighbor)
+                print(f"📉 BGP Route Withdrawal: Node {node} lost link to {withdrawn_neighbor}")
+    
+    for u, v, k in list(G.edges(keys=True)):
+        if random.random() < 0.1:
+            G.remove_edge(u, v, k)
+            print(f"⚡ BGP Stability Update: Unstable link {u}-{v} removed")
+    
+    enforce_as_path_policies(G)
 
-print("Cleaned MultiGraph topologies saved.")
+def enforce_as_path_policies(G):
+    for node in G.nodes():
+        local_preference = random.randint(50, 100)
+        as_path_length = random.randint(1, 5)
+        if local_preference > 75 and as_path_length < 3:
+            print(f"🌍 BGP Policy: Node {node} prefers shorter AS paths with higher local preference")
+        
+# Q-Learning-Based Failure Prediction
+class QLearningFailurePredictor:
+    def __init__(self, alpha=0.1, gamma=0.9, epsilon=0.1):
+        self.q_table = {}
+        self.alpha = alpha
+        self.gamma = gamma
+        self.epsilon = epsilon
 
-# Function to visualize a MultiGraph
-def visualize_topology(G, title="Network Topology"):
-    plt.figure(figsize=(8, 6))
-    pos = nx.spring_layout(G)  # Use spring layout for visualization
-    nx.draw(G, pos, with_labels=True, node_color='skyblue', edge_color='gray', node_size=500, font_size=10)
+    def get_q_value(self, state, action):
+        return self.q_table.get((state, action), 0.0)
 
-    # Handle edge labels for MultiGraph
-    edge_labels = {(u, v): G[u][v][list(G[u][v].keys())[0]]["weight"] for u, v in G.edges()}  # Pick one edge per node pair
-    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels)
+    def update_q_value(self, state, action, reward, next_state):
+        best_next_action = max([self.get_q_value(next_state, a) for a in ["reroute", "reinforce", "do_nothing"]], default=0)
+        self.q_table[(state, action)] = (1 - self.alpha) * self.get_q_value(state, action) + self.alpha * (reward + self.gamma * best_next_action)
 
-    plt.title(title)
-    plt.show()
+    def select_action(self, state):
+        if random.random() < self.epsilon:
+            return random.choice(["reroute", "reinforce", "do_nothing"])
+        return max(["reroute", "reinforce", "do_nothing"], key=lambda a: self.get_q_value(state, a))
 
-# Visualize the first MultiGraph topology
-visualize_topology(processed_topologies[0], title="Sample Cleaned MultiGraph Topology")
+    def train(self, G):
+        for _ in range(1000):
+            node = random.choice(list(G.nodes()))
+            action = self.select_action(node)
+            reward = self.simulate_action(G, node, action)
+            next_state = node
+            self.update_q_value(node, action, reward, next_state)
+        print("🧠 Q-learning training complete.")
 
-# Function to check connectivity of MultiGraph
-def check_connectivity(G):
-    if nx.is_connected(G):  # MultiGraph must be fully connected
-        print("✅ The MultiGraph is fully connected.")
-    else:
-        print("⚠️ The MultiGraph has disconnected components.")
+    def simulate_action(self, G, node, action):
+        if action == "reroute":
+            return 10 if len(list(G.neighbors(node))) > 1 else -10
+        elif action == "reinforce":
+            return 5 if random.random() > 0.5 else -5
+        return -1
 
-# Check connectivity for the first topology
-check_connectivity(processed_topologies[0])
+q_predictor = QLearningFailurePredictor()
+q_predictor.train(processed_topologies[0])
 
-# Function to find the shortest path in MultiGraph
-def test_shortest_path(G):
-    try:
-        source, target = list(G.nodes())[0], list(G.nodes())[-1]
-        path = nx.shortest_path(G, source, target, weight='weight')
-        print(f"✅ Shortest path from {source} to {target}: {path}")
-    except nx.NetworkXNoPath:
-        print("⚠️ No path found between source and target.")
+# Monitoring and Rerouting
+monitoring_active = False
+monitoring_thread = None
 
-# Test shortest path on first MultiGraph topology
-test_shortest_path(processed_topologies[0])
+def monitor_network(G, interval=5):
+    global monitoring_active
+    while monitoring_active:
+        timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
+        print(f"🔍 {timestamp}: Monitoring network...")
+        predict_failures_rl(G)
+        reroute_traffic(G)
+        balance_traffic(G)
+        optimize_scalability(G)
+        log_network_data(G)
+        update_topology(G)
+        time.sleep(interval)
+    print(f"⏹️ {timestamp}: Monitoring stopped.")
+
+# Visualization Dashboard
+app = dash.Dash(__name__)
+
+def generate_cytoscape_graph(G):
+    elements = [{"data": {"id": str(node), "label": str(node)}} for node in G.nodes()]
+    elements += [{"data": {"source": str(u), "target": str(v), "weight": G.edges[u, v, k]["weight"]}} for u, v, k in G.edges(keys=True)]
+    return elements
+
+app.layout = html.Div([
+    html.H1("Network Monitoring Dashboard"),
+    html.Button("Start Monitoring", id="start-button", n_clicks=0),
+    html.Button("Stop Monitoring", id="stop-button", n_clicks=0),
+    cyto.Cytoscape(
+        id='cytoscape-network',
+        elements=generate_cytoscape_graph(processed_topologies[0]),
+        layout={'name': 'cose'},
+        style={'width': '100%', 'height': '600px'}
+    ),
+    dcc.Interval(id='interval-component', interval=5000, n_intervals=0)
+])
+
+if __name__ == "__main__":
+    app.run_server(debug=True, use_reloader=False)

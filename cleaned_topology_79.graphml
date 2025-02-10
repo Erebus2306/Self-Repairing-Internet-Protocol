@@ -1,0 +1,522 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d37" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d36" for="edge" attr.name="key" attr.type="long" />
+  <key id="d35" for="edge" attr.name="LinkLabel" attr.type="string" />
+  <key id="d34" for="node" attr.name="hyperedge" attr.type="long" />
+  <key id="d33" for="node" attr.name="label" attr.type="string" />
+  <key id="d32" for="node" attr.name="Longitude" attr.type="double" />
+  <key id="d31" for="node" attr.name="id" attr.type="long" />
+  <key id="d30" for="node" attr.name="Country" attr.type="string" />
+  <key id="d29" for="node" attr.name="Latitude" attr.type="double" />
+  <key id="d28" for="node" attr.name="Internal" attr.type="long" />
+  <key id="d27" for="graph" attr.name="Testbed" attr.type="long" />
+  <key id="d26" for="graph" attr.name="LastProcessed" attr.type="string" />
+  <key id="d25" for="graph" attr.name="DateYear" attr.type="string" />
+  <key id="d24" for="graph" attr.name="NetworkDate" attr.type="string" />
+  <key id="d23" for="graph" attr.name="Transit" attr.type="long" />
+  <key id="d22" for="graph" attr.name="Developed" attr.type="long" />
+  <key id="d21" for="graph" attr.name="Creator" attr.type="string" />
+  <key id="d20" for="graph" attr.name="Layer" attr.type="string" />
+  <key id="d19" for="graph" attr.name="LastAccess" attr.type="string" />
+  <key id="d18" for="graph" attr.name="DateMonth" attr.type="string" />
+  <key id="d17" for="graph" attr.name="DateModifier" attr.type="string" />
+  <key id="d16" for="graph" attr.name="SourceGitVersion" attr.type="string" />
+  <key id="d15" for="graph" attr.name="IX" attr.type="long" />
+  <key id="d14" for="graph" attr.name="Customer" attr.type="long" />
+  <key id="d13" for="graph" attr.name="ToolsetVersion" attr.type="string" />
+  <key id="d12" for="graph" attr.name="label" attr.type="string" />
+  <key id="d11" for="graph" attr.name="Commercial" attr.type="long" />
+  <key id="d10" for="graph" attr.name="Backbone" attr.type="long" />
+  <key id="d9" for="graph" attr.name="Type" attr.type="string" />
+  <key id="d8" for="graph" attr.name="DateType" attr.type="string" />
+  <key id="d7" for="graph" attr.name="Version" attr.type="string" />
+  <key id="d6" for="graph" attr.name="Source" attr.type="string" />
+  <key id="d5" for="graph" attr.name="Access" attr.type="long" />
+  <key id="d4" for="graph" attr.name="Provenance" attr.type="string" />
+  <key id="d3" for="graph" attr.name="Network" attr.type="string" />
+  <key id="d2" for="graph" attr.name="GeoExtent" attr.type="string" />
+  <key id="d1" for="graph" attr.name="GeoLocation" attr.type="string" />
+  <key id="d0" for="graph" attr.name="DateObtained" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="0">
+      <data key="d28">1</data>
+      <data key="d29">57.70716</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">0</data>
+      <data key="d32">11.96679</data>
+      <data key="d33">Goteborg</data>
+    </node>
+    <node id="1">
+      <data key="d28">1</data>
+      <data key="d29">58.39118</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">1</data>
+      <data key="d32">13.84506</data>
+      <data key="d33">Skovde</data>
+    </node>
+    <node id="2">
+      <data key="d28">1</data>
+      <data key="d29">59.27412</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">2</data>
+      <data key="d32">15.2066</data>
+      <data key="d33">Orebro</data>
+    </node>
+    <node id="3">
+      <data key="d28">1</data>
+      <data key="d29">59.3793</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">3</data>
+      <data key="d32">13.50357</data>
+      <data key="d33">Karlstad</data>
+    </node>
+    <node id="4">
+      <data key="d28">1</data>
+      <data key="d29">56.67446</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">4</data>
+      <data key="d32">12.85676</data>
+      <data key="d33">Halmstad</data>
+    </node>
+    <node id="5">
+      <data key="d28">1</data>
+      <data key="d29">58.41667</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">5</data>
+      <data key="d32">15.61667</data>
+      <data key="d33">Linkoping</data>
+    </node>
+    <node id="6">
+      <data key="d28">1</data>
+      <data key="d29">57.72101</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">6</data>
+      <data key="d32">12.9401</data>
+      <data key="d33">Boras</data>
+    </node>
+    <node id="7">
+      <data key="d28">1</data>
+      <data key="d29">58.28365</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">7</data>
+      <data key="d32">12.28864</data>
+      <data key="d33">Trollhattan</data>
+    </node>
+    <node id="8">
+      <data key="d28">1</data>
+      <data key="d29">57.78145</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">8</data>
+      <data key="d32">14.15618</data>
+      <data key="d33">Jonkoping</data>
+    </node>
+    <node id="9">
+      <data key="d28">1</data>
+      <data key="d29">56.86667</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">9</data>
+      <data key="d32">14.81667</data>
+      <data key="d33">Vaxjo</data>
+    </node>
+    <node id="10">
+      <data key="d28">1</data>
+      <data key="d29">55.70584</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">10</data>
+      <data key="d32">13.19321</data>
+      <data key="d33">Lund</data>
+    </node>
+    <node id="11">
+      <data key="d28">1</data>
+      <data key="d29">56.03129</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">11</data>
+      <data key="d32">14.15242</data>
+      <data key="d33">Kristianstad</data>
+    </node>
+    <node id="12">
+      <data key="d28">1</data>
+      <data key="d29">56.20999</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">12</data>
+      <data key="d32">15.27602</data>
+      <data key="d33">Ronneby</data>
+    </node>
+    <node id="13">
+      <data key="d28">1</data>
+      <data key="d29">56.66157</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">13</data>
+      <data key="d32">16.36163</data>
+      <data key="d33">Kalmar</data>
+    </node>
+    <node id="14">
+      <data key="d28">1</data>
+      <data key="d29">57.64089</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">14</data>
+      <data key="d32">18.29602</data>
+      <data key="d33">Visby</data>
+    </node>
+    <node id="15">
+      <data key="d28">1</data>
+      <data key="d29">55.60587</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">15</data>
+      <data key="d32">13.00073</data>
+      <data key="d33">Malmo</data>
+    </node>
+    <node id="16">
+      <data key="d28">1</data>
+      <data key="d29">59.33258</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">16</data>
+      <data key="d32">18.0649</data>
+      <data key="d33">Stockholm</data>
+    </node>
+    <node id="17">
+      <data key="d28">1</data>
+      <data key="d29">65.85</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">17</data>
+      <data key="d32">23.16667</data>
+      <data key="d33">Vasten</data>
+    </node>
+    <node id="18">
+      <data key="d28">1</data>
+      <data key="d29">67.85572</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">18</data>
+      <data key="d32">20.22513</data>
+      <data key="d33">Kiruna</data>
+    </node>
+    <node id="19">
+      <data key="d28">1</data>
+      <data key="d29">65.58415</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">19</data>
+      <data key="d32">22.15465</data>
+      <data key="d33">Lulea</data>
+    </node>
+    <node id="20">
+      <data key="d34">1</data>
+      <data key="d28">1</data>
+      <data key="d31">20</data>
+      <data key="d33">None</data>
+    </node>
+    <node id="21">
+      <data key="d28">1</data>
+      <data key="d29">63.82842</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">21</data>
+      <data key="d32">20.25972</data>
+      <data key="d33">Umea</data>
+    </node>
+    <node id="22">
+      <data key="d28">1</data>
+      <data key="d29">62.39129</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">22</data>
+      <data key="d32">17.3063</data>
+      <data key="d33">Sundsvall</data>
+    </node>
+    <node id="23">
+      <data key="d28">1</data>
+      <data key="d29">60.67452</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">23</data>
+      <data key="d32">17.14174</data>
+      <data key="d33">Gavle</data>
+    </node>
+    <node id="24">
+      <data key="d28">1</data>
+      <data key="d29">60.4858</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">24</data>
+      <data key="d32">15.43714</data>
+      <data key="d33">Borlange</data>
+    </node>
+    <node id="25">
+      <data key="d28">1</data>
+      <data key="d29">59.8585</data>
+      <data key="d30">Sweden</data>
+      <data key="d31">25</data>
+      <data key="d32">17.64543</data>
+      <data key="d33">Uppsala</data>
+    </node>
+    <edge source="0" target="4" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="0" target="6" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="0" target="6" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="0" target="7" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">2</data>
+    </edge>
+    <edge source="1" target="2" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">7</data>
+    </edge>
+    <edge source="1" target="6" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">7</data>
+    </edge>
+    <edge source="1" target="7" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">7</data>
+    </edge>
+    <edge source="1" target="7" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="2" target="24" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">3</data>
+    </edge>
+    <edge source="2" target="3" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="2" target="3" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">9</data>
+    </edge>
+    <edge source="2" target="17" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="2" target="17" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">3</data>
+    </edge>
+    <edge source="3" target="7" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="4" target="10" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">1</data>
+    </edge>
+    <edge source="5" target="16" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">1</data>
+    </edge>
+    <edge source="5" target="16" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">1</data>
+    </edge>
+    <edge source="5" target="8" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">7</data>
+    </edge>
+    <edge source="5" target="8" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">7</data>
+    </edge>
+    <edge source="8" target="9" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">8</data>
+    </edge>
+    <edge source="8" target="9" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">6</data>
+    </edge>
+    <edge source="9" target="10" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">2</data>
+    </edge>
+    <edge source="9" target="13" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">8</data>
+    </edge>
+    <edge source="10" target="15" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="10" target="15" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="11" target="12" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="11" target="12" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="11" target="15" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="11" target="15" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="12" target="13" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">6</data>
+    </edge>
+    <edge source="12" target="13" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">9</data>
+    </edge>
+    <edge source="14" target="16" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">1</data>
+    </edge>
+    <edge source="14" target="16" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="16" target="17" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">9</data>
+    </edge>
+    <edge source="16" target="17" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="16" target="25" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">8</data>
+    </edge>
+    <edge source="16" target="25" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">3</data>
+    </edge>
+    <edge source="18" target="19" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">1</data>
+    </edge>
+    <edge source="18" target="19" id="1">
+      <data key="d35">red</data>
+      <data key="d36">1</data>
+      <data key="d37">9</data>
+    </edge>
+    <edge source="19" target="20" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">10</data>
+    </edge>
+    <edge source="19" target="21" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="20" target="21" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">2</data>
+    </edge>
+    <edge source="20" target="22" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">3</data>
+    </edge>
+    <edge source="21" target="22" id="0">
+      <data key="d35">green</data>
+      <data key="d36">0</data>
+      <data key="d37">1</data>
+    </edge>
+    <edge source="22" target="23" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">3</data>
+    </edge>
+    <edge source="22" target="23" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">7</data>
+    </edge>
+    <edge source="23" target="24" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">5</data>
+    </edge>
+    <edge source="23" target="25" id="0">
+      <data key="d35">red</data>
+      <data key="d36">0</data>
+      <data key="d37">3</data>
+    </edge>
+    <edge source="23" target="25" id="1">
+      <data key="d35">green</data>
+      <data key="d36">1</data>
+      <data key="d37">4</data>
+    </edge>
+    <data key="d0">22/10/10</data>
+    <data key="d1">Sweden</data>
+    <data key="d2">Country</data>
+    <data key="d3">OPTOSUNET</data>
+    <data key="d4">Primary</data>
+    <data key="d5">0</data>
+    <data key="d6">http://basun.sunet.se/aktuellt/optosunetbroschyr_eng.pdf</data>
+    <data key="d7">1.0</data>
+    <data key="d8">Current</data>
+    <data key="d9">REN</data>
+    <data key="d10">1</data>
+    <data key="d11">0</data>
+    <data key="d12">Sunet</data>
+    <data key="d13">0.3.34dev-20120328</data>
+    <data key="d14">0</data>
+    <data key="d15">0</data>
+    <data key="d16">e278b1b</data>
+    <data key="d17">=</data>
+    <data key="d18">10</data>
+    <data key="d19">21/10/10</data>
+    <data key="d20">Fibre</data>
+    <data key="d21">Topology Zoo Toolset</data>
+    <data key="d22">1</data>
+    <data key="d23">0</data>
+    <data key="d24">2010_10</data>
+    <data key="d25">2010</data>
+    <data key="d26">2011_09_01</data>
+    <data key="d27">0</data>
+  </graph>
+</graphml>
